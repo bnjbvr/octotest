@@ -16,6 +16,6 @@ jobs:
 
       - uses: EmbarkStudios/action-git-diff-suggestions@main
         with:
-          github-token: "${{ secrets.BOT_TOKEN }}"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
           message: typos
-          botNick: embark-bot
+          botNick: robotzilla
