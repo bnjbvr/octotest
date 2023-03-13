@@ -5,6 +5,7 @@ fn scope(f: impl FnOnce()) {
 }
 
 fn foo(iter: impl Iterator<Item = u32>) {
+    // Start some thraeds.
     scope(move || for _i in iter {});
 }
 
