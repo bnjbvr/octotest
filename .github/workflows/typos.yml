@@ -1,0 +1,25 @@
+name: Check and suggest typo fixes
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Actions Repository
+        uses: actions/checkout@v2
+
+      - name: Check spelling of all the files.
+        uses: EmbarkStudios/typos@write-changes
+        with:
+          write_changes: true
+
+      - uses: EmbarkStudios/action-git-diff-suggestions@main
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          message: typos
+          botNick: robotzilla
